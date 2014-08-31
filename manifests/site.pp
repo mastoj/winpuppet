@@ -1,3 +1,3 @@
 node default {
-	notify 'Hello puppet'
 }
+notify {"I'm notifying you.":}

@@ -1,3 +1,6 @@
+module { 'joshcooper/powershell': ensure => 'present' }
+module { 'rismoney/chocolatey': ensure => 'present' }
+
 node default {
 	notify {"Stuff from default":}
 }
@@ -13,15 +16,15 @@ node 'winpuppet' {
 	include eventstore
 }
 
-class eventstore {
-	exec {'get_eventstore':
-		command => 'Invoke-WebRequest http://download.geteventstore.com/binaries/EventStore-OSS-Win-v3.0.0-rc9.zip -OutFile c:\\downloads\\EventStore-OSS-Win-v3.0.0-rc9.zip',
-		creates => "c:/downloads/EventStore-OSS-Win-v3.0.0-rc9.zip",
-		provider => powershell,
-	}
+if $::kernel == windows {
+  # default package provider
+  Package { provider => chocolatey }
+}
 
-	file {'c:/downloads/EventStore-OSS-Win-v3.0.0-rc9.zip':
-		mode => 0755,
-		require => Exec["get_eventstore"],
-	}	
+class eventstore {
+	package { 'eventstore':
+		ensure => installed,
+		source => 'https://www.myget.org/F/crazy-choco/',
+		install_options => ['-pre'],
+	}
 }

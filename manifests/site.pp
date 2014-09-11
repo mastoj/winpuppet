@@ -13,9 +13,10 @@ node 'BEKK-TOMASJAN' {
 
 node 'winpuppet1' {
 	nirvanaservice::service {'eventstore': 
-		ensure  => '3.0.0-rc9',
-		pkgName => 'eventstore',
-		source  => 'https://www.myget.org/F/crazy-choco/',
+		ensure          => '3.0.0-rc9',
+		pkgName         => 'eventstore',
+		source          => 'https://www.myget.org/F/crazy-choco/',
+		install_options => ['-pre'],
 	}
 }
 

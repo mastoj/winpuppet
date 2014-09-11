@@ -3,6 +3,7 @@ node default {
 }
 
 node 'BEKK-TOMASJAN' {
+	include nirvanaservice
 	nirvanaservice::service {'eventstore': 
 		ensure          => '3.0.0-rc9',
 		pkgName         => 'eventstore',
@@ -12,6 +13,7 @@ node 'BEKK-TOMASJAN' {
 }
 
 node 'winpuppet1' {
+	include nirvanaservice
 	nirvanaservice::service {'eventstore': 
 		ensure          => '3.0.0-rc9',
 		pkgName         => 'eventstore',

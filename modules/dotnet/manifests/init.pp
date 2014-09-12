@@ -94,7 +94,7 @@ class dotnet(
               command   => "${dotnet::params::ps_command} Import-Module ServerManager; Remove-WindowsFeature as-net-framework",
               provider  => windows,
               logoutput => true,
-              onlyif    => "${dotnet::params::ps_command} Test-Path C:\Windows\Microsoft.NET\Framework\v3.5",
+              onlyif    => "${dotnet::params::ps_command} Test-Path C:\\Windows\\Microsoft.NET\\Framework\\v3.5",
             }
           }
           'Windows XP','Windows Vista','Windows 7','Windows 8': {

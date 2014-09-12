@@ -1,0 +1,37 @@
+{
+  "name": "liamjbennett-dotnet",
+  "version": "0.0.1",
+  "source": "UNKNOWN",
+  "author": "liamjbennett",
+  "license": "Apache License, Version 2.0",
+  "summary": "Module to manage the Microsoft .NET framework",
+  "description": "UNKNOWN",
+  "project_page": "https://github.com/liamjbennett/puppet-dotnet",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib"
+    },
+    {
+      "name": "joshcooper/powershell"
+    },
+    {
+      "name": "liamjbennett/win_facts"
+    }
+  ],
+  "types": [
+
+  ],
+  "checksums": {
+    "AUTHORS": "58ac67da8c3fe42bf6a3758141614a6c",
+    "Gemfile": "e0bcd55b3511a7557f189b8dfdf7fd8b",
+    "Gemfile.lock": "73ee86bcd3540b52f1f3430f8567ead0",
+    "LICENSE": "8f7bb094c7232b058c7e9f2e431f389c",
+    "ModuleFile": "fde89817d06f64e00cafbb299ea7faad",
+    "README.md": "cfcdb68f29fac7f190af793e7d730858",
+    "Rakefile": "4e9e8c5be166e3ba72057e4cc2b7693d",
+    "manifests/init.pp": "d4b12cf75a79b0497fd8f04e7828625c",
+    "manifests/params.pp": "a21c46365792c8efceff6f9c2a9d22c7",
+    "spec/classes/dotnet_spec.rb": "17e9ab6791b2e6a4ead1fc94309ef4ba",
+    "spec/spec_helper.rb": "7f7c697f9b11cde9827df6f86ff74682"
+  }
+}

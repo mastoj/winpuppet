@@ -14,6 +14,7 @@ node 'BEKK-TOMASJAN' {
 
 node 'winpuppet1' {
 	include nirvanaservice
+	include dotnet
 	include dotnet451
 	nirvanaservice::service {'eventstore': 
 		ensure          => '3.0.0-rc9',

@@ -83,7 +83,7 @@ class dotnet(
       }
       '4.5.1': {
         case $::operatingsystemversion {
-          'Windows Server 2008', 'Windows Server 2008 R2', 'Windows Server 2012','Windows Vista','Windows 7','Windows 8','Windows 8.1','Windows 8.1 Pro': {
+          'Windows Server 2008', 'Windows Server 2008 R2', 'Windows Server 2012','Windows Server 2012 Datacenter','Windows Vista','Windows 7','Windows 8','Windows 8.1','Windows 8.1 Pro': {
             exec { 'install-dotnet-45':
               command   => "& ${fixed_deployment_root} /q /norestart",
               provider  => powershell,

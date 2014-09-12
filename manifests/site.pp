@@ -28,6 +28,7 @@ class dotnet451 {
 	dotnet { 'dotnet451': 
 		version         => '4.5.1',
 		deployment_root => 'C:/downloads/NDP451-KB2858728-x86-x64-AllOS-ENU.exe',
+		require         => Download_file['dotnet451'],
 	}
 
 	download_file { 'dotnet451':

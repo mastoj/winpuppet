@@ -1,7 +1,7 @@
 #
 class dotnet::params {
     
-    $deployment_root = hiera('windows_deployment_root')
+    $deployment_root = hiera('windows_deployment_root', '')
     $version = hiera('dotnet_version','4')
     $ensure = hiera('dotnet_ensure','present')
     

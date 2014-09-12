@@ -25,6 +25,7 @@ class dotnet(
       default => $ensure
   }
 
+  notify {"OS Version: $::operatingsystemversion":}
   if $fixed_ensure == 'present' {
     case $fixed_version {
       '3.5': {
@@ -77,6 +78,21 @@ class dotnet(
           }
           default: {
             err('dotnet 4.5 is not supported on this version of windows')
+          }
+        }
+      }
+      '4.5.1': {
+        case $::operatingsystemversion {
+          'Windows Server 2008', 'Windows Server 2008 R2', 'Windows Server 2012','Windows Vista','Windows 7','Windows 8','Windows 8.1','Windows 8.1 Pro': {
+            exec { 'install-dotnet-45':
+              command   => "& ${fixed_deployment_root} /q /norestart",
+              provider  => powershell,
+              logoutput => true,
+              unless    => "if ((Get-Item -LiteralPath \'${dotnet::params::ff_reg_key}\' -ErrorAction SilentlyContinue).GetValue(\'DisplayVersion\')) { exit 0 }"
+            }
+          }
+          default: {
+            err('dotnet 4.5.1 is not supported on this version of windows')
           }
         }
       }

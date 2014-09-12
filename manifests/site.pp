@@ -4,6 +4,7 @@ node default {
 
 node 'BEKK-TOMASJAN' {
 	include nirvanaservice
+	include dotnet451
 	nirvanaservice::service {'eventstore': 
 		ensure          => '3.0.0-rc9',
 		pkgName         => 'eventstore',
@@ -14,7 +15,6 @@ node 'BEKK-TOMASJAN' {
 
 node 'winpuppet1' {
 	include nirvanaservice
-	include dotnet
 	include dotnet451
 	nirvanaservice::service {'eventstore': 
 		ensure          => '3.0.0-rc9',
@@ -25,7 +25,7 @@ node 'winpuppet1' {
 }
 
 class dotnet451 {
-	dotnet { 'dotnet451': 
+	class { 'dotnet': 
 		version         => '4.5.1',
 		deployment_root => 'C:/downloads/NDP451-KB2858728-x86-x64-AllOS-ENU.exe',
 		require         => Download_file['dotnet451'],

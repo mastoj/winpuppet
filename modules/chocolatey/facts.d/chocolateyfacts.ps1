@@ -1,0 +1,1 @@
+Write-Host "ChocolateyInstall="($env:ChocolateyInstall).Replace("\", "/")

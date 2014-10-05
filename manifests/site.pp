@@ -1,12 +1,29 @@
-node default {
-	notify {"Stuff from default":}
+
+if $::kernel == windows {
+  # default package provider
+  Package { provider => chocolatey }
+  Exec { provider => powershell }
 }
 
-node 'BEKK-TOMASJAN' {
+node default {
+	notify {"Stuff from default":}
+#	require 'facter'
+#	Facter.add(:ChocolateyInstall) do
+#		setcode "echo $env:ChocolateyInstall"
+#	end
+#	productname
+	$choco = $::ChocolateyInstall
+	$productname = $::productname
+	$msg = "Hello from |${choco}| |${productname}|"
+	notify {"${msg}":}
+	notify {$nsclient:}
+}
+
+node 'BEKK-TOMASJAN2' {
 	include nirvanaservice
 	include dotnet451
 	nirvanaservice::service {'eventstore': 
-		ensure          => '3.0.0-rc9',
+		ensure          => '3.0.0',
 		pkgName         => 'eventstore',
 		source          => 'https://www.myget.org/F/crazy-choco/',
 		install_options => ['-pre'],
@@ -17,7 +34,7 @@ node 'winpuppet1' {
 	include nirvanaservice
 	include dotnet451
 	nirvanaservice::service {'eventstore': 
-		ensure          => '3.0.0-rc9',
+		ensure          => '3.0.0',
 		pkgName         => 'eventstore',
 		source          => 'https://www.myget.org/F/crazy-choco/',
 		install_options => ['-pre'],
@@ -36,12 +53,6 @@ class dotnet451 {
 		location => "C:/downloads",
 		name => 'NDP451-KB2858728-x86-x64-AllOS-ENU.exe',
 	}
-}
-
-if $::kernel == windows {
-  # default package provider
-  Package { provider => chocolatey }
-  Exec { provider => powershell }
 }
 
 define download_file(

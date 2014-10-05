@@ -12,8 +12,8 @@ node default {
 #		setcode "echo $env:ChocolateyInstall"
 #	end
 #	productname
-	$choco = $::ChocolateyInstall
-	$productname = $::productname
+	$choco = $::chocolateyinstall
+	$productname = $::windows_systemtype
 	$msg = "Hello from |${choco}| |${productname}|"
 	notify {"${msg}":}
 	notify {$nsclient:}

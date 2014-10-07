@@ -1,5 +1,5 @@
 {
-    "executable": "%ChocolateyInstall%\\bin\\EventStore.ClusterNode.exe",
+    "executable": "%ProgramData%\\eventstore\\EventStore.ClusterNode.exe",
     "options": {
         "argSeparator": " ",
         "arguments": {

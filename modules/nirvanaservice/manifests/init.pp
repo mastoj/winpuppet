@@ -1,11 +1,12 @@
 class nirvanaservice {
+	package { 'nirvanaservice':
+		ensure => $version,
+		source => 'https://www.myget.org/F/crazy-choco/',
+		install_options => ['-pre'],
+	}
+
 	define service ($ensure, $config, $source, $pkgName, $install_options, $configmode = '0774') {
 		$nirvanaservicename = 'nirvanaservice'
-		package { 'nirvanaservice':
-			ensure => $version,
-			source => 'C:\\packages', #'https://www.myget.org/F/crazy-choco/',
-			install_options => ['-pre'],
-		}
 
 		if $ensure == 'absent' {
 			exec {"uninstall_service_$name":

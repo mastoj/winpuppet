@@ -5,6 +5,12 @@ if $::kernel == windows {
   Exec { provider => powershell }
 }
 
+node 'BEKK-TOMASJAN' {
+	include nirvanaservice
+	include eventstore
+	include elasticsearch
+}
+
 node default {
 	notify {"Stuff from default":}
 #	require 'facter'
@@ -17,11 +23,6 @@ node default {
 	$msg = "Hello from |${choco}| |${productname}|"
 	notify {"${msg}":}
 	notify {$nsclient:}
-}
-
-node 'BEKK-TOMASJAN' {
-	include nirvanaservice
-	include eventstore
 }
 
 node 'winpuppet1' {

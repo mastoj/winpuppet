@@ -11,29 +11,10 @@ node 'BEKK-TOMASJAN' {
 	include elasticsearch
 }
 
-node default {git
-	notify {"Stuff from default":}
-#	require 'facter'
-#	Facter.add(:ChocolateyInstall) do
-#		setcode "echo $env:ChocolateyInstall"
-#	end
-#	productname
-	$choco = $::chocolateyinstall
-	$productname = $::windows_systemtype
-	$msg = "Hello from |${choco}| |${productname}|"
-	notify {"${msg}":}
-	notify {$nsclient:}
-}
-
 node 'winpuppet1' {
 	include nirvanaservice
-	include dotnet451
-	nirvanaservice::service {'eventstore': 
-		ensure          => '3.0.0',
-		pkgName         => 'eventstore',
-		source          => 'https://www.myget.org/F/crazy-choco/',
-		install_options => ['-pre'],
-	}
+	include eventstore
+	include elasticsearch
 }
 
 class dotnet451 {

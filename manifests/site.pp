@@ -11,7 +11,7 @@ node 'BEKK-TOMASJAN' {
 	include elasticsearch
 }
 
-node default {
+node default {git
 	notify {"Stuff from default":}
 #	require 'facter'
 #	Facter.add(:ChocolateyInstall) do

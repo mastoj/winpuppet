@@ -13,4 +13,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppet.module_path = "modules"
     #puppet.options = "--verbose --debug"
   end
+
+  config.vm.define :server1 do |server1_config|
+    server1_config.vm.hostname="server1"
+  end
 end

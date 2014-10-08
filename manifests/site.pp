@@ -5,13 +5,8 @@ if $::kernel == windows {
   Exec { provider => powershell }
 }
 
-node 'BEKK-TOMASJAN' {
-	include nirvanaservice
-	include eventstore
-	include elasticsearch
-}
-
-node 'winpuppet1' {
+# All is the same, so comma-separated. server1 is the vagrant hostname
+node 'BEKK-TOMASJAN', 'winpuppet1', 'server1' {
 	include nirvanaservice
 	include eventstore
 	include elasticsearch

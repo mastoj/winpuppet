@@ -1,26 +1,38 @@
 {
-  "name": "joshcooper-powershell",
-  "version": "0.0.6",
-  "source": "git://github.com/joshcooper/puppetlabs-powershell.git",
-  "author": "Josh Cooper",
-  "license": "Apache License, Version 2.0",
+  "name": "puppetlabs-powershell",
+  "version": "1.0.3",
+  "author": "Puppet Labs",
   "summary": "A PowerShell provider for puppet.",
-  "description": "A PowerShell provider for puppet.",
-  "project_page": "http://links.puppetlabs.com/powershell-module",
+  "license": "Apache-2.0",
+  "source": "git@github.com/puppetlabs/puppetlabs-powershell.git",
+  "project_page": "http://github.com/puppetlabs/puppetlabs-powershell",
+  "issues_url": "https://git@github.com/puppetlabs/puppetlabs-powershell/issues",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Windows",
+      "operatingsystemrelease": [
+        "Server 2003",
+        "Server 2003 R2",
+        "Server 2008",
+        "Server 2008 R2",
+        "Server 2012",
+        "Server 2012 R2",
+        "7",
+        "8"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": "3.x"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": "3.x"
+    }
+  ],
   "dependencies": [
-
-  ],
-  "types": [
-
-  ],
-  "checksums": {
-    "Gemfile": "3dfc5e78e2ea6a4efa30d28919f2afa2",
-    "Gemfile.lock": "c0fef017f9ae041afe1158aee95310f3",
-    "Modulefile": "9a13013a7ad98ae562b7ea16146aa8fb",
-    "README.md": "32cb02277a39078bf5ccfba881d66db9",
-    "lib/puppet/provider/exec/powershell.rb": "6cd041b40a8192ae0756893ae2b8525d",
-    "spec/spec_helper.rb": "fc0ee3c4cbe0c9500c277602a8261d6e",
-    "spec/unit/provider/exec/powershell_spec.rb": "78e6f6aa7d9479b81fe62d53cce7868b",
-    "tests/init.pp": "ac161a35edba9a4a723f279b397db7c9"
-  }
+  
+  ]
 }

@@ -1,4 +1,8 @@
 class elasticsearch {
+	portmanager::port { 'elasticsearch':
+		number    => 9200,
+		enableTcp => true,
+	}
 
 	package { 'java-server-jre':
 		ensure          => '1.7.0-u67',

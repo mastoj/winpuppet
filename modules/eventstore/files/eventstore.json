@@ -4,7 +4,8 @@
         "argSeparator": " ",
         "arguments": {
             "--db": "c:\\tmp\\es2\\data",
-            "--run-projections": "all"
+            "--run-projections": "all",
+            "--http-prefixes": "http://*:2113/"
         }
     }
 }

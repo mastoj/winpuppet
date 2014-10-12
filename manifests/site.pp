@@ -10,5 +10,7 @@ node 'BEKK-TOMASJAN', 'winpuppet1', 'server1' {
 	include portmanager
 	include nirvanaservice
 	include eventstore
+	include javaserverjre
 	include elasticsearch
+	include neo4j
 }

@@ -42,6 +42,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :forwarded_port, guest: 3389, host: 33389, id: "rdp", auto_correct: true
   config.vm.network :forwarded_port, guest: 9200, host: 9200, id: "elasticsearch", auto_correct: true
   config.vm.network :forwarded_port, guest: 2113, host: 2113, id: "eventstore", auto_correct: true
+  config.vm.network :forwarded_port, guest: 7474, host: 7474, id: "neo4j", auto_correct: true
 
   config.vm.provision "shell", inline: $script
 

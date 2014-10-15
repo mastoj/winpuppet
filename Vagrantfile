@@ -35,14 +35,16 @@ iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.p
 $env:Path = [System.Environment]::GetEnvironmentVariable("ChocolateyInstall","Machine")
 SCRIPT
 
-
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|  
+  config.vm.network "private_network", ip: "192.168.50.4"
+
   config.vm.box = "kensykora/windows_2012_r2_standard"
   config.vm.communicator = "winrm"
-  config.vm.network :forwarded_port, guest: 3389, host: 33389, id: "rdp", auto_correct: true
-  config.vm.network :forwarded_port, guest: 9200, host: 9200, id: "elasticsearch", auto_correct: true
-  config.vm.network :forwarded_port, guest: 2113, host: 2113, id: "eventstore", auto_correct: true
-  config.vm.network :forwarded_port, guest: 7474, host: 7474, id: "neo4j", auto_correct: true
+#  config.vm.network :forwarded_port, guest: 3389, host: 33389, id: "rdp", auto_correct: true
+#  config.vm.network :forwarded_port, guest: 9200, host: 9200, id: "elasticsearch", auto_correct: true
+#  config.vm.network :forwarded_port, guest: 2113, host: 2113, id: "eventstore2113", auto_correct: true
+#  config.vm.network :forwarded_port, guest: 1113, host: 1113, id: "eventstore1113", auto_correct: true
+#  config.vm.network :forwarded_port, guest: 7474, host: 7474, id: "neo4j", auto_correct: true
 
   config.vm.provision "shell", inline: $script
 

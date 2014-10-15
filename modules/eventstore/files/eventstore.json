@@ -5,7 +5,8 @@
         "arguments": {
             "--db": "c:\\tmp\\es2\\data",
             "--run-projections": "all",
-            "--http-prefixes": "http://*:2113/"
+            "--http-prefixes": "http://*:2113/",
+            "--ext-ip": "192.168.50.4"
         }
     }
 }

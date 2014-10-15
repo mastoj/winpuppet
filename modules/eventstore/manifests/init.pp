@@ -1,6 +1,11 @@
 class eventstore {
-	portmanager::port { 'eventstore':
+	windowsfunctions::port { 'eventstore_2113':
 		number    => 2113,
+		enableTcp => true,
+	}
+
+	windowsfunctions::port { 'eventstore_1113':
+		number    => 1113,
 		enableTcp => true,
 	}
 

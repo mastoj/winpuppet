@@ -1,5 +1,5 @@
 class neo4j {
-	portmanager::port { 'neo4j':
+	windowsfunctions::port { 'neo4j':
 		number    => 7474,
 		enableTcp => true,
 	}

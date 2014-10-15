@@ -4,7 +4,7 @@ Param(
   [bool]$enableTcp
 )
 
-Write-Host "Yolo: $name, $port, $enableTcp"
+Write-Host "Enabling port: $name, $port, $enableTcp"
 
 $NET_FW_IP_PROTOCOL_UDP = 17 
 $NET_FW_IP_PROTOCOL_TCP = 6 

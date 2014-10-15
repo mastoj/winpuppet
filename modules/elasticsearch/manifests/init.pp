@@ -1,5 +1,5 @@
 class elasticsearch {
-	portmanager::port { 'elasticsearch':
+	windowsfunctions::port { 'elasticsearch':
 		number    => 9200,
 		enableTcp => true,
 	}

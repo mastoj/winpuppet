@@ -1,6 +1,7 @@
 Param(
 	[string]$name,
-	[string]$action, 
+	[string]$action,
+	[string]$arguments, 
 	[int]$minutes, 
 	[int]$startDelay
 )
@@ -12,7 +13,12 @@ try {
 	$startTime = $(Get-Date).AddMinutes($startDelay);
 	$interval = (New-TimeSpan $(Get-Date) $(Get-Date).AddMinutes($minutes));
 	$trigger = New-ScheduledTaskTrigger -Once -At $startTime -RepetitionInterval $interval -RepetitionDuration $([TimeSpan]::MaxValue);
-	$scheduleAction = New-ScheduledTaskAction -Execute "$action";
+	if([string]::IsNullOrWhiteSpace($arguments)) {
+		$scheduleAction = New-ScheduledTaskAction -Execute "$action";
+	}
+	else {
+		$scheduleAction = New-ScheduledTaskAction -Execute "$action" -Argument "$arguments";
+	}
 	$task = New-ScheduledTask -Action $scheduleAction -Trigger $trigger;
 	Register-ScheduledTask $name -InputObject $task;
 }

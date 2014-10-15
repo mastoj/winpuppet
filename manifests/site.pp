@@ -17,8 +17,19 @@ node 'BEKK-TOMASJAN', 'winpuppet1', 'server1' {
 	include elasticsearch
 	include neo4j
 
+	file { 'c:/testing.ps1':
+		content	=> "\"YOLO\" | Out-File c:\\log2.txt -Append"
+	}
+
 	windowsfunctions::scheduledtask { "testing" :
-		action     => "echo \"\"hello\"\" >> c:\\log.txt",
+		action     => "cmd.exe",
+		arguments => "/C echo \"\"hello\"\" >> c:\\log.txt",
+		startDelay => 2,
+	}
+
+	windowsfunctions::scheduledtask { "testing2" :
+		action     => "powershell",
+		arguments => "-c \"\"c:/testing.ps1\"\"",
 		startDelay => 2,
 	}
 }

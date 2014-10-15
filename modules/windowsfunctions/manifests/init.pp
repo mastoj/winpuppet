@@ -27,12 +27,12 @@ class windowsfunctions {
 		}
 	}
 
-	define scheduledtask ($action, $minutes = 10, $startDelay = 5) {
+	define scheduledtask ($action, $arguments = "", $minutes = 10, $startDelay = 5) {
 		exec { "$name":
-			command => "c:/powershell_scripts/scheduletask.ps1 -name $name -action \"$action\" -minutes $minutes -startDelay $startDelay",
+			command => "c:/powershell_scripts/scheduletask.ps1 -name $name -action \"$action\" -arguments \"$arguments\" -minutes $minutes -startDelay $startDelay",
 			logoutput => true,
 			require   => File['c:/powershell_scripts/scheduletask.ps1'],
-			onlyif    => "try { Get-ScheduledTask -TaskName $name; 1; } catch { exit 0;}",
+			unless    => "if(Get-ScheduledTask -TaskName $name) {exit 0} else {exit 1}",
 		}
 	}
 }

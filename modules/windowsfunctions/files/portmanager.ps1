@@ -22,7 +22,7 @@ else {
 }
 
 $firewallPort = New-Object -ComObject HNetCfg.FWOpenPort 
-$firewallPort.Name = "eventstore_tcp"
+$firewallPort.Name = $name + "_tcp"
 
 $firewallPort.Port = $port 
 $firewallPort.RemoteAddresses = "*" 

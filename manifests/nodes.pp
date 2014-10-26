@@ -10,6 +10,8 @@ node 'winpuppet1', 'server1' {
 	include elasticsearch
 #	include sqlserver
 	include neo4j
+
+	elasticsearch::plugin { 'marvel': }
 }
 
 #	package { 'procexp':

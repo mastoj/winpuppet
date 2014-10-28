@@ -16,7 +16,7 @@ SCRIPT
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|  
   config.vm.guest = :windows 
-  config.vm.box = ""
+  config.vm.box = "puppet-windows--Mac-host"
   config.vm.box_url = "file:///Users/thomas/Code/Sanbox/vagrant-win-2012/sio-vagrant-win2012-R2/win2012-R2.box"
   config.vm.network "private_network", ip: "192.168.50.4"
   config.vm.communicator = "winrm"

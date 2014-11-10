@@ -17,7 +17,7 @@ SCRIPT
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|  
   config.vm.guest = :windows 
   config.vm.box = "puppet-windows--Mac-host"
-  config.vm.box_url = "file:///Users/thomas/Code/Sanbox/vagrant-win-2012/sio-vagrant-win2012-R2/win2012-R2.box"
+  config.vm.box_url = "C:/boxes/win2012-R2.box"
   config.vm.network "private_network", ip: "192.168.50.4"
   config.vm.communicator = "winrm"
 
@@ -29,6 +29,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :forwarded_port, guest: 3389, host: 33389, id: "rdp", auto_correct: true
 
 
+  config.vm.synced_folder "./shared", "c:/files"
   config.vm.provision "shell", inline: $script
 
   config.vm.provision :puppet do |puppet|

@@ -5,11 +5,11 @@ node default {
 node 'winpuppet1', 'server1' {
 	include windowsfunctions
 	include nirvanaservice
-	include eventstore
+#	include eventstore
 	include javaserverjre
 	include elasticsearch
 #	include sqlserver
-	include neo4j
+#	include neo4j
 
 	elasticsearch::plugin { 'marvel': }
 }

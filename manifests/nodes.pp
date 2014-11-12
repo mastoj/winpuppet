@@ -8,15 +8,15 @@ node 'winpuppet1', 'server1' {
 	include eventstore
 	include javaserverjre
 	include elasticsearch
-	include sqlserver
+#	include sqlserver
 	include neo4j
 
 	elasticsearch::plugin { 'marvel': }
 }
 
-#	package { 'procexp':
-#		ensure => '15.13',
-#	}
+package { 'procexp':
+	ensure => '15.13',
+}
 
 
 #	file { 'c:/testing.ps1':

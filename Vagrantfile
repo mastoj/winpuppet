@@ -18,7 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.guest = :windows 
   config.vm.box = "puppet-windows--Mac-host"
   config.vm.box_url = "C:/boxes/win2012-R2.box"
-  config.vm.network "private_network", ip: "192.168.50.4"
+  config.vm.network "private_network", ip: "192.168.50.69"
   config.vm.communicator = "winrm"
 
   config.vm.provider :virtualbox do |v, override|

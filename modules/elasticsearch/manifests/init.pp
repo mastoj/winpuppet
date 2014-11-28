@@ -19,7 +19,7 @@ class elasticsearch {
 		$version = '1.3.4'
 		notify { "elasticsearch plugin $name": }
 		exec { "install_$name":
-			require   => Nirvanaservice::Service['elasticsearch'],
+			require   => Service['elasticsearch'],
 			cwd       => "$programdata/elasticsearch/elasticsearch-$version",
 			command   => "(bin/plugin.bat -i elasticsearch/$name/latest); (nirvanaservice stop -servicename:elasticsearch); (nirvanaservice start -servicename:elasticsearch) ",
 			onlyif    => "((./bin/plugin.bat -l) | where {\$_.Contains('$name')}).Length -eq 0",

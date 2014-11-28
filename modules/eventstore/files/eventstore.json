@@ -3,10 +3,11 @@
     "options": {
         "argSeparator": " ",
         "arguments": {
-            "--db": "c:\\tmp\\es2\\data",
+            "--db": "\"e:\\eventstore\\data\"",
+            "--log": "\"e:\\eventstore\\logs\"",
             "--run-projections": "all",
             "--http-prefixes": "http://*:2113/",
-            "--ext-ip": "192.168.50.69"
+            "--ext-ip": "127.0.0.1"
         }
     }
 }

@@ -2,6 +2,17 @@ node default {
 	notify { 'YOLO': }
 }
 
+node 'TOJA-WIN8' {
+	include windowsfunctions
+	include nirvanaservice
+	include eventstore
+	include javaserverjre
+	include elasticsearch
+	include neo4j
+
+	elasticsearch::plugin { 'marvel': }
+}
+
 node 'winpuppet1', 'server1' {
 	include windowsfunctions
 	include nirvanaservice
